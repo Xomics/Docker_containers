@@ -2,6 +2,20 @@
 
 A collection of Docker containers that are used in X-omics workflows
 
+# Dockerhub
+
+All containers in this repository can be pulled from [Dockerhub](https://hub.docker.com/u/casperdevisser)
+
+# Build Docker images locally
+
+Docker images can be built locally using the Dockerfiles in this repository, for example: 
+
+```{bash}
+git clone https://github.com/Xomics/Docker_containers.git
+cd Docker_containers
+cd Containers_files/miniconda-snf
+docker build -t image/name:tag .
+```
 
 # Build Singularity containers **locally**
 
