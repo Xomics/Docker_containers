@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.2
+# Dockerfile VERSION = v0.3
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION
@@ -30,7 +30,8 @@ RUN R -e "install.packages('BiocManager', version = '3.12')" \
 RUN R -e "install.packages('installr')" \
         && R -e "installr::install.Rtools(check = TRUE, check_r_update = FALSE, GUI = FALSE)" \
         && R -e "install.packages(c('systemfonts', 'textshaping', 'ragg', 'pkgdown', 'Cairo', 'lme4'))" \
-        && R -e "install.packages('devtools')" 
+        && R -e "install.packages('devtools')" \
+        && R -e "install.packages('pandoc')"
 
 
 # Installation of tidyverse package from GitHub (v1.3.1) 
@@ -40,4 +41,11 @@ RUN R -e "devtools::install_github('hadley/tidyverse')"
 RUN R -e "install.packages('ggbubr', dependencies = TRUE, repos = 'http://cran.rstudio.com/')"
 
 # Installations for Nextflow metrics, 'ps' command
+RUN apt-get update && apt-get install libglib2.0-dev -y
 RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
+
+# Pandoc installation
+RUN apt-get -y update && apt-get install -y \
+    build-essential \
+    cmake \
+    pandoc
