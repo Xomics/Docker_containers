@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.7
+# Dockerfile VERSION = v0.8
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf:$VERSION
@@ -10,7 +10,7 @@
 FROM continuumio/miniconda3
 ARG DEBIAN_FRONTEND=noninteractive
 
-LABEL build_data="30-09-2022"
+LABEL build_data="26-01-2023"
 LABEL vendor="Radboudumc, CMBI"
 LABEL usage=""
 LABEL url=""
@@ -24,7 +24,8 @@ RUN pip install snfpy==0.2.2 \
     && pip install papermill==2.4.0 \
     && pip install ipykernel==6.16.0 \
     && pip install statsmodels==0.13.2 \
-    && pip install seaborn==0.12.1
+    && pip install seaborn==0.12.2 \
+    && pip install Jinja2==3.1.2
 
 # Install base env as ipykernel
 RUN python -m ipykernel install --name base --user 
