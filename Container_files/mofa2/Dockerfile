@@ -1,11 +1,11 @@
-# Dockerfile VERSION = v0.3
+# Dockerfile VERSION = v0.5
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION
 # sudo docker pull registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2$VERSION
 # sudo docker images # to get IMAGE_ID
 # sudo docker save $IMAGE_ID -o mofa2.tar
-# sudo singularity build miniconda-snf.sif docker-archive://mofa2.tar
+# sudo singularity build mofa2.sif docker-archive://mofa2.tar
 
 FROM gtca/mofa2
 
@@ -30,8 +30,8 @@ RUN R -e "install.packages('BiocManager', version = '3.12')" \
 RUN R -e "install.packages('installr')" \
         && R -e "installr::install.Rtools(check = TRUE, check_r_update = FALSE, GUI = FALSE)" \
         && R -e "install.packages(c('systemfonts', 'textshaping', 'ragg', 'pkgdown', 'Cairo', 'lme4'))" \
-        && R -e "install.packages('devtools')" \
-        && R -e "install.packages('pandoc')"
+        && R -e "install.packages(c('devtools', 'psych'))"  \
+        && R -e "install.packages('corrplot', version='0.92')"
 
 
 # Installation of tidyverse package from GitHub (v1.3.1) 
