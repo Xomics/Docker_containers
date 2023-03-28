@@ -35,4 +35,4 @@ RUN pip install muon==0.1.3 \
 
 CMD ["/bin/bash"]
 
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "muon", "jupyter", "notebook", "--notebook-dir=/isa_container/", "--ip=*", "--port=8888", "--no-browser", "--allow-root"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "muon", "jupyter", "notebook", "--notebook-dir=/container/", "--ip=*", "--port=8888", "--no-browser", "--allow-root"]
