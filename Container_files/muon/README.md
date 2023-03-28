@@ -3,7 +3,7 @@ Docker container for working with Muon and MuData
 
 ## How to run the Docker Container
 ```
-docker run -it -v $(volume):/container/ -p 8888:8888 casperdevisser/isatools_environment:v0.2 #check correct version
+docker run -it -v $(volume):/container/ -p 8888:8888 casperdevisser/muon:v0.2 #check correct version
 ```
 
 - **$(volume)** is the absolute path to directory where you store input data. 
