@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.5
+# Dockerfile VERSION = v0.6
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION
@@ -30,7 +30,7 @@ RUN R -e "install.packages('BiocManager', version = '3.12')" \
 RUN R -e "install.packages('installr')" \
         && R -e "installr::install.Rtools(check = TRUE, check_r_update = FALSE, GUI = FALSE)" \
         && R -e "install.packages(c('systemfonts', 'textshaping', 'ragg', 'pkgdown', 'Cairo', 'lme4'))" \
-        && R -e "install.packages(c('devtools', 'psych'))"  \
+        && R -e "install.packages(c('devtools', 'psych', 'gee'))"  \
         && R -e "install.packages('corrplot', version='0.92')"
 
 
