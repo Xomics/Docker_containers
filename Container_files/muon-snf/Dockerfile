@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.2
+# Dockerfile VERSION = v0.3
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION . 
 # docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION
@@ -39,7 +39,8 @@ RUN pip install muon==0.1.3 \
     && pip install statsmodels==0.13.2 \
     && pip install seaborn==0.12.2 \
     && pip install Jinja2==3.1.2 \
-    && pip install black==23.3.0
+    && pip install black==23.3.0 \
+    && pip install pyreadr==0.4.7
 
 CMD ["/bin/bash"]
 
