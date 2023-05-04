@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.3
+# Dockerfile VERSION = v0.4
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION . 
 # docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION
@@ -29,7 +29,8 @@ RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
 
 #Adding Jupyer notebook and installing conda environment
 RUN conda create --name muon
-RUN pip install muon==0.1.3 \
+RUN pip install numpy==1.23.1 \
+    && pip install muon==0.1.3 \
     && pip install notebook==6.4.10 \
     && pip install snfpy==0.2.2 \
     && pip install pandas==1.4.1 \
