@@ -1,12 +1,19 @@
 # Dockerfile VERSION = v0.4
 # docker login registry.cmbi.umcn.nl
-# docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/r-base-epigenomics-pre:$VERSION . 
+# docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/r-base-epigenomics-pre:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/r-base-epigenomics-pre:$VERSION
 # sudo docker pull registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/r-base-epigenomics-pre$VERSION
 # sudo docker images # to get IMAGE_ID
 # sudo docker save $IMAGE_ID -o r-base-epigenomics-pre.tar
 # sudo singularity build r-base-epigenomics-pre.sif docker-archive://r-base-epigenomics-pre.tar
+
 FROM r-base:4.1.2
+
+ARG BUILD_DATE
+
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vendor="Radboudumc, Medical Biosciences department"
+LABEL maintainer="casper.devisser@radboudumc.nl"
 
 # Installations needed for devtools package
 RUN apt update

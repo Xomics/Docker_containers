@@ -1,6 +1,6 @@
 # Dockerfile VERSION = v0.8
 # docker login registry.cmbi.umcn.nl
-# docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf:$VERSION . 
+# docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf:$VERSION
 # sudo docker pull registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/miniconda-snf$VERSION
 # sudo docker images # to get IMAGE_ID
@@ -9,11 +9,11 @@
 
 FROM continuumio/miniconda3
 ARG DEBIAN_FRONTEND=noninteractive
+ARG BUILD_DATE
 
-LABEL build_data="26-01-2023"
-LABEL vendor="Radboudumc, CMBI"
-LABEL usage=""
-LABEL url=""
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vendor="Radboudumc, Medical Biosciences department"
+LABEL maintainer="casper.devisser@radboudumc.nl"
 
 WORKDIR /container
 

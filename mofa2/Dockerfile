@@ -1,6 +1,6 @@
 # Dockerfile VERSION = v0.6
 # docker login registry.cmbi.umcn.nl
-# docker build -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION . 
+# docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')  -t registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION . 
 # docker push registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2:$VERSION
 # sudo docker pull registry.cmbi.umcn.nl/x-omics-action-dataset/action_nextflow/mofa2$VERSION
 # sudo docker images # to get IMAGE_ID
@@ -8,6 +8,12 @@
 # sudo singularity build mofa2.sif docker-archive://mofa2.tar
 
 FROM gtca/mofa2
+
+ARG BUILD_DATE
+
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vendor="Radboudumc, Medical Biosciences department"
+LABEL maintainer="casper.devisser@radboudumc.nl"
 
 # Installations needed for devtools package
 RUN apt-get update --allow-releaseinfo-change
