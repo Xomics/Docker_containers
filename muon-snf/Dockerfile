@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.4
+# Dockerfile VERSION = v0.5
 # docker login registry.cmbi.umcn.nl
 # docker build -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION . 
 # docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/muon-snf:$VERSION
@@ -8,12 +8,13 @@
 # sudo singularity build muon-snf.sif docker-archive://muon-snf.tar
 
 FROM continuumio/miniconda3
-ARG DEBIAN_FRONTEND=noninteractive
 
-LABEL build_data="28-03-2023"
-LABEL vendor="Radboudumc, Medical Biosciences department"
-LABEL usage=""
-LABEL url=""
+ARG DEBIAN_FRONTEND=noninteractive
+ARG BUILD_DATE
+
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vendor="Radboudumc, Medical Biosciences department"
+LABEL maintainer="casper.devisser@radboudumc.nl"
 
 WORKDIR /container
 
@@ -42,6 +43,8 @@ RUN pip install numpy==1.23.1 \
     && pip install Jinja2==3.1.2 \
     && pip install black==23.3.0 \
     && pip install pyreadr==0.4.7
+
+RUN pip install pySummarizedExperiment
 
 CMD ["/bin/bash"]
 
