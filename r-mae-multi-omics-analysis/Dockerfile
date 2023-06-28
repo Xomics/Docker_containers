@@ -1,13 +1,13 @@
-# Dockerfile VERSION = v0.1
+# Dockerfile VERSION = v0.2
 # docker login registry.cmbi.umcn.nl
-# docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/rstudio-mae-multi-omics-analysis:$VERSION . 
-# docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/rstudio-mae-multi-omics-analysis:$VERSION
-# docker pull registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/rstudio-mae-multi-omics-analysis:$VERSION
+# docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/r-mae-multi-omics-analysis:$VERSION . 
+# docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/r-mae-multi-omics-analysis:$VERSION
+# docker pull registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/r-mae-multi-omics-analysis:$VERSION
 # docker images # to get IMAGE_ID
-# docker save $IMAGE_ID -o rstudio-mae-multi-omics-analysistar
-# sudo singularity build rstudio-mae-multi-omics-analysis.sif docker-archive://rstudio-mae-multi-omics-analysis.tar
+# docker save $IMAGE_ID -o r-mae-multi-omics-analysistar
+# sudo singularity build rstudio-mae-multi-omics-analysis.sif docker-archive://r-mae-multi-omics-analysis.tar
 
-FROM rocker/rstudio:4.2.2
+FROM r-base:4.2.3
 
 ARG BUILD_DATE
 
@@ -22,8 +22,7 @@ RUN apt-get -y update && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
-    libfontconfig1-dev \
-    r-bioc-rhtslib
+    libfontconfig1-dev 
 
 
 # Install R packages
