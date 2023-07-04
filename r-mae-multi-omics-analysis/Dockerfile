@@ -1,4 +1,4 @@
-# Dockerfile VERSION = v0.2
+# Dockerfile VERSION = v0.3
 # docker login registry.cmbi.umcn.nl
 # docker build --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/r-mae-multi-omics-analysis:$VERSION . 
 # docker push registry.cmbi.umcn.nl/eatris-plus/eatrisplus_omics_tools/r-mae-multi-omics-analysis:$VERSION
@@ -30,6 +30,7 @@ RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.
 RUN R -e "install.packages('BiocManager', version = '3.12')" \
         && R -e "BiocManager::install(version = '3.16')" 
 RUN R -e "BiocManager::install(c('Bioconductor/GenomeInfoDb', 'Bioconductor/BSgenome'))"
+RUN R -e "install.packages('rmarkdown')"
 
 # Install Renv and all packages in the lock file
 ENV RENV_VERSION 0.15.2-2
