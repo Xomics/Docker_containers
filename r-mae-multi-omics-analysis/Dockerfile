@@ -31,6 +31,7 @@ RUN R -e "install.packages('BiocManager', version = '3.12')" \
         && R -e "BiocManager::install(version = '3.16')" 
 RUN R -e "BiocManager::install(c('Bioconductor/GenomeInfoDb', 'Bioconductor/BSgenome'))"
 RUN R -e "install.packages('rmarkdown')"
+RUN R -e "install.packages('lmerTest')"
 
 # Install Renv and all packages in the lock file
 ENV RENV_VERSION 0.15.2-2
