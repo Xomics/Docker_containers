@@ -1684,33 +1684,6 @@
       "Repository": "Bioconductor 3.19",
       "Author": "Ricard Argelaguet [aut, cre] (<https://orcid.org/0000-0003-3199-3722>), Damien Arnol [aut] (<https://orcid.org/0000-0003-2462-534X>), Danila Bredikhin [aut] (<https://orcid.org/0000-0001-8089-6983>), Britta Velten [aut] (<https://orcid.org/0000-0002-8397-3515>)"
     },
-    "MafDb.1Kgenomes.phase3.GRCh38": {
-      "Package": "MafDb.1Kgenomes.phase3.GRCh38",
-      "Version": "3.10.0",
-      "Source": "Bioconductor",
-      "Title": "Minor allele frequency data from 1000 Genomes Phase 3 for GRCh38",
-      "Description": "Store minor allele frequency data from the Phase 3 of the 1000 Genomes Project for the human genome version GRCh38.",
-      "Author": "Robert Castelo [aut, cre]",
-      "License": "Artistic-2.0",
-      "Maintainer": "Robert Castelo <robert.castelo@upf.edu>",
-      "Depends": [
-        "R (>= 3.5.0)",
-        "GenomicScores (>= 1.9.6)"
-      ],
-      "Suggests": [
-        "SNPlocs.Hsapiens.dbSNP149.GRCh38"
-      ],
-      "Imports": [
-        "utils",
-        "S4Vectors",
-        "IRanges",
-        "GenomicRanges",
-        "GenomeInfoDb",
-        "BSgenome"
-      ],
-      "biocViews": "AnnotationData, Genetics, GenomicScores, Homo_sapiens",
-      "NeedsCompilation": "no"
-    },
     "Matrix": {
       "Package": "Matrix",
       "Version": "1.7-0",
@@ -8943,43 +8916,6 @@
       "NeedsCompilation": "yes",
       "VignetteBuilder": "R.rsp",
       "Author": "Roger Koenker [cre, aut], Stephen Portnoy [ctb] (Contributions to Censored QR code), Pin Tian Ng [ctb] (Contributions to Sparse QR code), Blaise Melly [ctb] (Contributions to preprocessing code), Achim Zeileis [ctb] (Contributions to dynrq code essentially identical to his dynlm code), Philip Grosjean [ctb] (Contributions to nlrq code), Cleve Moler [ctb] (author of several linpack routines), Yousef Saad [ctb] (author of sparskit2), Victor Chernozhukov [ctb] (contributions to extreme value inference code), Ivan Fernandez-Val [ctb] (contributions to extreme value inference code), Martin Maechler [ctb] (tweaks (src/chlfct.f, 'tiny','Large'), <https://orcid.org/0000-0002-8685-9910>), Brian D Ripley [trl, ctb] (Initial (2001) R port from S (to my everlasting shame -- how could I have been so slow to adopt R!) and for numerous other suggestions and useful advice)"
-    },
-    "ragg": {
-      "Package": "ragg",
-      "Version": "1.5.0",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Graphic Devices Based on AGG",
-      "Authors@R": "c( person(\"Thomas Lin\", \"Pedersen\", , \"thomas.pedersen@posit.co\", role = c(\"cre\", \"aut\"), comment = c(ORCID = \"0000-0002-5147-4711\")), person(\"Maxim\", \"Shemanarev\", role = c(\"aut\", \"cph\"), comment = \"Author of AGG\"), person(\"Tony\", \"Juricic\", , \"tonygeek@yahoo.com\", role = c(\"ctb\", \"cph\"), comment = \"Contributor to AGG\"), person(\"Milan\", \"Marusinec\", , \"milan@marusinec.sk\", role = c(\"ctb\", \"cph\"), comment = \"Contributor to AGG\"), person(\"Spencer\", \"Garrett\", role = \"ctb\", comment = \"Contributor to AGG\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\")) )",
-      "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
-      "Description": "Anti-Grain Geometry (AGG) is a high-quality and high-performance 2D drawing library. The 'ragg' package provides a set of graphic devices based on AGG to use as alternative to the raster devices provided through the 'grDevices' package.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://ragg.r-lib.org, https://github.com/r-lib/ragg",
-      "BugReports": "https://github.com/r-lib/ragg/issues",
-      "Imports": [
-        "systemfonts (>= 1.0.3)",
-        "textshaping (>= 0.3.0)"
-      ],
-      "Suggests": [
-        "covr",
-        "graphics",
-        "grid",
-        "testthat (>= 3.0.0)"
-      ],
-      "LinkingTo": [
-        "systemfonts",
-        "textshaping"
-      ],
-      "Config/build/compilation-database": "true",
-      "Config/Needs/website": "ggplot2, devoid, magick, bench, tidyr, ggridges, hexbin, sessioninfo, pkgdown, tidyverse/tidytemplate",
-      "Config/testthat/edition": "3",
-      "Config/usethis/last-upkeep": "2025-04-25",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
-      "SystemRequirements": "freetype2, libpng, libtiff, libjpeg, libwebp, libwebpmux",
-      "NeedsCompilation": "yes",
-      "Author": "Thomas Lin Pedersen [cre, aut] (ORCID: <https://orcid.org/0000-0002-5147-4711>), Maxim Shemanarev [aut, cph] (Author of AGG), Tony Juricic [ctb, cph] (Contributor to AGG), Milan Marusinec [ctb, cph] (Contributor to AGG), Spencer Garrett [ctb] (Contributor to AGG), Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
-      "Repository": "CRAN"
     },
     "rappdirs": {
       "Package": "rappdirs",
